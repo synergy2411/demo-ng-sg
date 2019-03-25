@@ -1,0 +1,15 @@
+> npm cache clean --force
+> npm uninstall @angular/cli -g
+> npm install @angular/cli@6 -g
+> ng -v
+
+for Angular 6.x
+    > node > 10.x
+    > npm > 6.x
+for Angular 5.x
+    > node > 8.x
+    > npm > 5.x
+
+> ng new <project_name>
+> cd <project_namme>
+> ng serve
