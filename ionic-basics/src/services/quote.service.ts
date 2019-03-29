@@ -13,6 +13,21 @@ export class QuotesService{
         }else{
             console.log("Quote already exist.");
         }
-        
+    }
+
+    removeQuoteFromFavorite(quote : IQuote){
+        const position = this.favoriteQuotes.findIndex(el => el.id === quote.id);
+        this.favoriteQuotes.splice(position, 1);
+        console.log("Quote Removed.")
+    }
+
+    isQuoteFavorite(quote : IQuote){
+        let duplicateQuotes = this.favoriteQuotes.filter(ele => ele.id === quote.id );
+        return duplicateQuotes.length === 0 ? false:true;
+    }
+
+    getFavQuotes(){
+        console.log(this.favoriteQuotes.splice(0));
+        return this.favoriteQuotes;
     }
 }

@@ -23,9 +23,21 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-6></ion-col>
           <ion-col col-6>
-            <button ion-button clear (click)="onFavorite(quote)">Favorite</button>
+              <button 
+                *ngIf="isFavoriteQuote(quote)"
+                color="appcolor"
+                ion-button 
+                clear 
+                (click)="onUnfavorite(quote)">Unfavorite</button>
+          </ion-col>
+          <ion-col col-6>
+            <button 
+            *ngIf="!isFavoriteQuote(quote)"
+              color="secondary"
+              ion-button 
+              clear 
+              (click)="onFavorite(quote)">Favorite</button>
           </ion-col>
         </ion-row>
       </ion-grid>

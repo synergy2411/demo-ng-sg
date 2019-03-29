@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { IQuote } from './../../model/quote.interface';
 
-/**
- * Generated class for the QuotePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QuotePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  quote : IQuote;
+  constructor(private navParams: NavParams,
+              private viewCtrl : ViewController){
+    this.quote = this.navParams.data['quote'];
+    console.log("Quote", this.quote);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotePage');
+  onClose(flag : boolean){
+    this.viewCtrl.dismiss(flag);
   }
 
 }

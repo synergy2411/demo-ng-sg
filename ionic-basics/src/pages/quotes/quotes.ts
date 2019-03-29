@@ -28,6 +28,7 @@ export class QuotesPage {
         text : "Yes, please go ahead.",
         handler : () => {
           this.quoteService.addQuoteToFavorite(quote);
+          this.isFavoriteQuote(quote);
         }
       }, {
         text : "No, I changed my mind.",
@@ -37,4 +38,13 @@ export class QuotesPage {
     alert.present();
   }
 
+  onUnfavorite(quote : IQuote){
+    this.quoteService.removeQuoteFromFavorite(quote);
+    
+  }
+  isFavoriteQuote(quote : IQuote){
+    return this.quoteService.isQuoteFavorite(quote);
+    
+  }
+  
 }
