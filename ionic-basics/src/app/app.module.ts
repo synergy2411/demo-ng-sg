@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { QuotePageModule } from './../pages/quote/quote.module';
 import { QuotesPageModule } from './../pages/quotes/quotes.module';
@@ -22,6 +23,7 @@ import { FavoritePage } from '../pages/favorite/favorite';
 import { LibraryPage } from '../pages/library/library';
 import { QuotesPage } from '../pages/quotes/quotes';
 import { QuotePage } from '../pages/quote/quote';
+import { QuotesService } from './../services/quote.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { QuotePage } from '../pages/quote/quote';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QuotesService
   ]
 })
 export class AppModule {}
