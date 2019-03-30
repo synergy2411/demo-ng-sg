@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <h1>Current Location</h1>
+ <button ion-button block (click)="getLocation()">
+   Get Location
+ </button>
+ <button ion-button block color="dark" (click)="getWeather()">
+   Get Weather
+ </button>
+ <button ion-button block color="secondary" (click)="getPicture()">
+   Get Picture
+ </button>
+
+ <div *ngIf="imageSrc != ''">
+   <img [src]="imageSrc" >
+ </div>
+
+</ion-content>

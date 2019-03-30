@@ -1,8 +1,8 @@
-import { QuotePage } from './../quote/quote';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, ModalController } from 'ionic-angular';
 import { IQuote } from './../../model/quote.interface';
 import { QuotesService } from './../../services/quote.service';
+import { QuotePage } from './../quote/quote';
 
 @IonicPage()
 @Component({
@@ -12,10 +12,11 @@ import { QuotesService } from './../../services/quote.service';
 export class FavoritePage {
   favQuotes: IQuote[];
 
-  ngOnInit(){
+  ionViewWillEnter(){
     this.favQuotes = this.quoteService.getFavQuotes();
-    console.log(this.quoteService.getFavQuotes());
   }
+    
+// ionic cordova build android
 
   constructor(private quoteService: QuotesService,
     private modalCtrl: ModalController) { }
@@ -27,7 +28,7 @@ export class FavoritePage {
     modal.onDidDismiss(flag => {
       if (flag) {
         this.quoteService.removeQuoteFromFavorite(quote);
-        // this.favQuotes = this.quoteService.getFavQuotes();
+        this.favQuotes = this.quoteService.getFavQuotes();
       }
     })
   }

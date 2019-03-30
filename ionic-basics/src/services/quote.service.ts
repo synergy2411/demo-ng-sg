@@ -27,7 +27,6 @@ export class QuotesService{
     }
 
     getFavQuotes(){
-        console.log(this.favoriteQuotes.splice(0));
-        return this.favoriteQuotes;
+        return this.favoriteQuotes.slice();
     }
 }
